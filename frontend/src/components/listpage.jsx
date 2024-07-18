@@ -15,13 +15,11 @@ const Listpage = () => {
     // Local state variables for form inputs
     const [formSearchType, setFormSearchType] = useState('name');
     const [formSearchQuery, setFormSearchQuery] = useState('');
-    const base_url = import.meta.env.VITE_BASE_URL;
-    
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`${base_url}/api/get/page/all?page=${currentPage}&limit=${itemsPerPage}&type=${searchType}&query=${searchQuery}`);
+                const response = await fetch(`https://dinefinder-782r.onrender.com/api/get/page/all?page=${currentPage}&limit=${itemsPerPage}&type=${searchType}&query=${searchQuery}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

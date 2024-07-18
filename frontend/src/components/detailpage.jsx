@@ -7,12 +7,11 @@ const Detailpage = () => {
   const [restaurant, setRestaurant] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const base_url = import.meta.env.VITE_BASE_URL;
   useEffect(() => {
     const fetchRestaurant = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${base_url}/api/get/id/${id}`);
+        const response = await fetch(`https://dinefinder-782r.onrender.com/api/get/id/${id}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
